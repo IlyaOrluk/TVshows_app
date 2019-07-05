@@ -1,26 +1,53 @@
 import React from 'react';
-import logo from './logo.svg';
+import Header from './Header';
+import ShowsPage from './ShowsPage';
+import SearchList from './SearchList';
+import ApiService from './services/ApiServices';
+
 import './App.css';
 
-function App() {
-  return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
-  );
-}
+export default class App extends React.Component {
+  ApiService = new ApiService();
 
-export default App;
+  state = {
+    searchContent: null,
+    searchResult: null
+  }
+  constructor(){
+    super();
+    this.searchValue = (e) => {
+      this.setState({
+      searchContent: e.target.value
+    });
+    }
+
+    this.findShows = () => {
+      console.log('find')
+      this.ApiService
+      .searchShow(this.state.searchContent)
+      .then((show) =>{
+          // this.setState({
+          //     searchResult: [...show]
+          // });
+          console.log(show)
+      });
+    };
+  }
+
+
+
+
+
+  render() {
+    console.log(this.state.searchContent)
+  return (
+    <div className='container'>
+      <Header searchValue={this.searchValue}
+              findShows={this.findShows}/>
+      <ShowsPage/>
+      <SearchList searchContent={this.state.searchResult}/>
+    </div>
+
+  );
+  }
+}

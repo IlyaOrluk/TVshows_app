@@ -1,0 +1,26 @@
+img {
+    margin: 2vh;
+}
+.title h4 {
+    font-size: 30px;
+    font-weight: normal;
+    margin: 1vh;
+    text-align: center;
+}
+ul li {
+    list-style: none;
+}
+.term {
+    font-weight: 600;
+}
+.title{
+    margin: 0 auto;
+    width: 30%;
+}
+.preview {
+    display: flex;
+    align-items: flex-start;
+}
+.list-group {
+    margin: 8vh 0;
+}
