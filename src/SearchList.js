@@ -5,28 +5,31 @@ import React, {Component} from 'react';
 
 export default class SearchList extends Component {
     state = {
-        findShows: null
+
     }
-
-    // ApiService = new ApiService();
-
-    // findShows = () => {
-    //     this.ApiService
-    //     .searchShow('tin')
-    //     .then((show) =>{
-    //         this.setState({
-    //             findShows: show
-    //         });
-    //         console.log(show)
-    //     });
-    //   };
-    //   this.findShows();
+    renderItems = () => {
+        if(this.props.searchContent !== null){
+        return this.props.searchContent.map((item) => {
+          return (
+            <li className='search-show-item' onClick={this.props.findShowClick} key={item.show.id} id={item.show.id}>
+              {item.show.name} / {item.show.language} / {item.show.premiered}
+              </li>
+          );
+        });
+    }
+      }
+    
 
     render(){
 
-        const{searchContent} = this.props;
+            const items = this.renderItems();
+        
         return(
-            <div>{searchContent}</div>
+           
+            <div>
+              {items}
+                <button>hide search list</button>
+            </div>
         );
     }
 }

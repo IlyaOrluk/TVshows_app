@@ -4,6 +4,8 @@ import ShowsPage from './ShowsPage';
 import SearchList from './SearchList';
 import ApiService from './services/ApiServices';
 
+// import styled from 'styled-components'
+
 import './App.css';
 
 export default class App extends React.Component {
@@ -11,7 +13,8 @@ export default class App extends React.Component {
 
   state = {
     searchContent: null,
-    searchResult: null
+    searchResult: null,
+    showPreview: 565
   }
   constructor(){
     super();
@@ -22,16 +25,21 @@ export default class App extends React.Component {
     }
 
     this.findShows = () => {
-      console.log('find')
       this.ApiService
       .searchShow(this.state.searchContent)
       .then((show) =>{
-          // this.setState({
-          //     searchResult: [...show]
-          // });
-          console.log(show)
+          this.setState({
+            searchResult: [...show]
+          });
       });
     };
+    this.findShowClick = (e) =>{
+      if(e.target){
+        this.setState({
+          showPreview: e.target.id
+        })
+      }
+    }
   }
 
 
@@ -39,15 +47,25 @@ export default class App extends React.Component {
 
 
   render() {
-    console.log(this.state.searchContent)
   return (
     <div className='container'>
       <Header searchValue={this.searchValue}
               findShows={this.findShows}/>
-      <ShowsPage/>
-      <SearchList searchContent={this.state.searchResult}/>
+      <SearchList searchContent={this.state.searchResult}
+                  findShowClick={this.findShowClick}/>
+      <ShowsPage previewItem={this.state.showPreview}/>
+
     </div>
 
   );
   }
+
+  
 }
+
+// const Item = styled.li`
+//     list-style: none;
+//   `
+// <style>
+
+// </style>

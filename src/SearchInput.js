@@ -3,7 +3,7 @@ import React, {Component} from 'react';
 
 export default class SearchInput extends Component {
     state = {
-        // searchResult: null
+
     }
 
 
@@ -14,7 +14,8 @@ export default class SearchInput extends Component {
             <input type="text"
             className="search-input"
             placeholder="type to search" 
-            onInput={searchValue}/>
+            onInput={searchValue}
+            onChange={findShows}/>
             <button onClick={findShows}>SEARCH</button>
             </div>
 

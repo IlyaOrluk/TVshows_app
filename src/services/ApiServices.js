@@ -15,8 +15,11 @@ export default class ApiService {
     searchShow = async (search) => {
       const res = await this.getResource(`/search/shows?q=${search}`);
       return res
-        // .map(this._transformPerson)
-        // .slice(0, 5);
+    };
+
+    castShow = async (search) => {
+      const res = await this.getResource(`/shows/${search}/cast`);
+      return res
     };
   
     getShow = async (id) => {
