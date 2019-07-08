@@ -16,6 +16,7 @@ export default class CastShow extends Component {
 
   constructor(props) {
       super();
+
       console.log(props)
     this.updateCast = (castId) => {
       this.ApiService
@@ -24,7 +25,6 @@ export default class CastShow extends Component {
           this.setState({
             castPersons: [...show]
           });
-          console.log(this.state.castPersons)
       });
 
   };
@@ -42,7 +42,6 @@ export default class CastShow extends Component {
             </div>
         );
     } else {
-      console.log(item)
       return (
         <div className='cast-show-item' onClick={this.props.findShowClick} key={item.character.id}>
           <img src={item.character.image.medium} alt='character'/>
@@ -56,12 +55,10 @@ export default class CastShow extends Component {
 
 
   componentDidMount() {
-    console.log('componentDidMount')
     this.updateCast(this.props.previewCastItem);
   }
   componentDidUpdate(prevProps){
     if(this.props.previewCastItem !== prevProps.previewCastItem){
-      console.log('componentDidUpdate')
       this.updateCast(this.props.previewCastItem);
     }
   }

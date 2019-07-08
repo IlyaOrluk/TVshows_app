@@ -10,15 +10,16 @@ export default class SearchInput extends Component {
     render(){
         const{searchValue, findShows} = this.props
         return(
-            <div>
+            <div className='search'>
             <input type="text"
             className="search-input"
-            placeholder="type to search" 
-            onInput={searchValue}
-            onChange={findShows}/>
-            <button onClick={findShows}>SEARCH</button>
+            placeholder="Type to search" 
+            onInput={searchValue}/>
+            <button className='search-btn' onClick={findShows}>SEARCH</button>
             </div>
 
         );
     }
 }
+
+// onChange={findShows}

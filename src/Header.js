@@ -1,32 +1,18 @@
 import React from 'react';
-import SearchInput from './SearchInput';
+import searchDude from './img/searchman.png';
 import './Header.css';
+
 
 export default class Header extends React.Component {
 
 
   render(){
-    const {findShows, searchValue} = this.props;
   return (
     <div className="header">
-      <h3>
-        <a href="#/">
-          TTS
-        </a>
-      </h3>
-      <ul>
-        <li>
-          <a href="#/people">People</a>
-        </li>
-        <li>
-          <a href="#/planets">Shows</a>
-        </li>
-        <li>
-          <a href="#/starships">Web Channel</a>
-        </li>
-      </ul>
-      <SearchInput searchValue={searchValue}
-                    findShows={findShows}/>
+      <img className='dude' src={searchDude} alt='dude'/>
+      <div className='title'>
+        <h3>Search Any TV Show</h3>
+      </div>
     </div>
   );
 }

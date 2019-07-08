@@ -65,24 +65,24 @@ export default class ShowsPage extends Component {
   //     this.updateShow(previewItem)
     
   // }
-//   componentWillUnmount() {
-//     clearInterval(this.interval);
-//   }
+  // componentWillUnmount() {
+  //   clearInterval(this.interval);
+  // }
 
-//   onPlanetLoaded = (planet) => {
-//     this.setState({
-//       planet,
-//       loading: false,
-//       error: false
-//     });
-//   };
+  // onPlanetLoaded = (planet) => {
+  //   this.setState({
+  //     planet,
+  //     loading: false,
+  //     error: false
+  //   });
+  // };
 
-//   onError = (err) => {
-//     this.setState({
-//       error: true,
-//       loading: false
-//     });
-//   };
+  // onError = (err) => {
+  //   this.setState({
+  //     error: true,
+  //     loading: false
+  //   });
+  // };
 
 
 
@@ -115,7 +115,7 @@ const ShowContent = ({item, props}) =>{
   const officialSiteShow = officialSite?
   <li className="list-group-item">
   <span className="term">OfficialSite: </span>
-  <span>{officialSite}</span>
+  <a href={officialSite}>{officialSite}</a>
   </li>: null;
 
 
@@ -123,23 +123,23 @@ const ShowContent = ({item, props}) =>{
         <React.Fragment>
                   <div className='preview'>
             <div className='title'>
-                <h4>{name}</h4>
                 <img src={img} alt="show"/>
             </div>
-          <ul className="list-group">
-          <li className="list-group-item">
+          <ul className="preview-show">
+          <h4>{name}</h4>
+          <li className="preview-show-item">
               <span className="term">Genres: </span>
               <span>{genres}</span>
             </li>
-            <li className="list-group-item">
+            <li className="preview-show-item">
               <span className="term">Premiered: </span>
               <span>{premiered}</span>
             </li>
-            <li className="list-group-item">
+            <li className="preview-show-item">
               <span className="term">Type: </span>
               <span>{type}</span>
             </li>
-            <li className="list-group-item">
+            <li className="preview-show-item">
               <span className="term">Summary: </span>
               <p>{summary}</p>
             </li>

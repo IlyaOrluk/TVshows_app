@@ -1,38 +1,21 @@
-    
-.header ul {
-    display: flex;
-    justify-content: flex-start;
-  }
-.header {
-    display: flex;
+@import url('https://fonts.googleapis.com/css?family=Barriecito&display=swap');
+
+h3 {
+  font-family:  'Barriecito', cursive;
+  font-size: 50px;
+  color: rgb(52, 54, 53);
+  margin: 0 auto;
 }
-  .header ul li{
-    list-style: none;
-  }
-  .header ul li a{
-    color: #444;
-    text-decoration: none;
-    margin: 0;
-    padding: .5rem 1rem;
-    border-radius: 3px;
-  }
-  
-  .header ul li a:hover {
-    color:  #fff;
-    background-color: #444;
-  }
-  
-  .header a:hover {
-    text-decoration: none;
-  }
-  
-  .header h3 a {
-    text-transform: uppercase;
-    color:  #444;
-    text-decoration: none;
-    font-size: 27px;
-  }
-  
-  .header h3 a:hover {
-    color: #00bc8c;
-  }
+h3::first-letter{
+  font-size: 63px;
+}
+.header {
+  display: flex;
+  justify-content: center;
+  align-items: flex-end;
+  margin-right: 15vh;
+}
+.dude {
+  width: 160px;
+  height: auto;
+}

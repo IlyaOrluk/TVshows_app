@@ -9,6 +9,7 @@ const Spinner = () => {
         <div></div>
         <div></div>
       </div>
+      <span>Waiting search</span>
     </div>
   );
 };
