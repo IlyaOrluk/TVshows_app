@@ -110,7 +110,7 @@ export default class ShowsPage extends Component {
 
 
 const ShowContent = ({item, props}) =>{
-  const {previewItem} = props;
+  const {previewItem, hideShow, backToList} = props;
   const {name, type, premiered, img, summary, genres, officialSite} = item;
   const officialSiteShow = officialSite?
   <li className="list-group-item">
@@ -121,7 +121,8 @@ const ShowContent = ({item, props}) =>{
 
     return (
         <React.Fragment>
-                  <div className='preview'>
+          <div className='preview'>
+          <span onClick={backToList} className='back-preview-show'>BACK</span>
             <div className='title'>
                 <img src={img} alt="show"/>
             </div>
@@ -145,6 +146,7 @@ const ShowContent = ({item, props}) =>{
             </li>
             {officialSiteShow}
           </ul>
+          <span onClick={hideShow} className='hide-preview-show'>X</span>
         </div>
         <CastShow previewCastItem={previewItem}/>
         </React.Fragment>

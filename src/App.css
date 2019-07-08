@@ -41,3 +41,17 @@ body {
   background: rgba(255, 255, 255, 0.473);
   border: none;
 }
+.info-btn{
+  position: absolute;
+  top: 2%;
+  left: 2%;
+  background: #fff;
+  border-radius: 50%;
+  border: 1px solid #999;
+  width: 30px;
+  height: 30px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  cursor: pointer;
+}

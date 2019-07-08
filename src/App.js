@@ -16,7 +16,8 @@ export default class App extends React.Component {
     searchContent: null,
     searchResult: null,
     showPreview: 37823,
-    showPage: false
+    showPage: false,
+    showList: false
   }
   constructor(){
     super();
@@ -32,6 +33,8 @@ export default class App extends React.Component {
       .then((show) =>{
           this.setState({
             searchResult: [...show],
+            showPage: false,
+            showList: true
           });
       });
     };
@@ -39,31 +42,43 @@ export default class App extends React.Component {
         if(e.target.classList.contains('show-item')){
           this.setState({
             showPreview: e.target.id,
-            showPage: true
+            showPage: true,
+            showList: false
           })
         } else {
           this.setState({
             showPreview: e.target.parentNode.id,
-            showPage: true
+            showPage: true,
+            showList: false
           })
         }
-
-
+    }
+    this.hideShow = () =>{
+      this.setState({
+        showPage: false
+      })
+    }
+    this.backToList = () =>{
+      this.setState({
+        showPage: false,
+        showList: true
+      })
     }
   }
 
 
 
   render() {
-    const mainShow =  this.state.showPage ? <ShowsPage previewItem={this.state.showPreview}/> : null;
+    const mainShow =  this.state.showPage ? <ShowsPage hideShow={this.hideShow} previewItem={this.state.showPreview} backToList={this.backToList}/> : null;
+    const searchShows =  this.state.showList ? <SearchList searchContent={this.state.searchResult} findShowClick={this.findShowClick}/> : null;
   return (
     <div className='container'>
+      <span className='info-btn'>?</span>
       <Header findShows={this.findShows}/>
       <SearchInput searchValue={this.searchValue}
                    findShows={this.findShows}/>
       {mainShow}
-      <SearchList searchContent={this.state.searchResult}
-                  findShowClick={this.findShowClick}/>
+      {searchShows}
     </div>
 
   );

@@ -20,3 +20,15 @@ ul li {
 .preview-show-item {
     margin: 0;
 }
+.hide-preview-show{
+    cursor: pointer;
+    position: absolute;
+    top: 40%;
+    right: 9%;
+}
+.back-preview-show{
+    cursor: pointer;
+    position: absolute;
+    top: 40%;
+    left: 9%;
+}
