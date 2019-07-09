@@ -9,13 +9,14 @@ import SearchInput from './SearchInput';
 
 
 import './App.css';
+
 export default class App extends React.Component {
   ApiService = new ApiService();
 
   state = {
     searchContent: null,
     searchResult: null,
-    showPreview: 37823,
+    showPreview: 23314,
     showPage: false,
     showList: false
   }
@@ -52,6 +53,7 @@ export default class App extends React.Component {
             showList: false
           })
         }
+        console.log(e.target)
     }
     this.hideShow = () =>{
       this.setState({
@@ -70,7 +72,7 @@ export default class App extends React.Component {
 
   render() {
     const mainShow =  this.state.showPage ? <ShowsPage hideShow={this.hideShow} previewItem={this.state.showPreview} backToList={this.backToList}/> : null;
-    const searchShows =  this.state.showList ? <SearchList searchContent={this.state.searchResult} findShowClick={this.findShowClick}/> : null;
+    const searchShows =  this.state.showList ? <SearchList searchContent={this.state.searchContent} findShowClick={this.findShowClick}/> : null;
   return (
     <div className='container'>
       <span className='info-btn'>?</span>

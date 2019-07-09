@@ -13,7 +13,7 @@ export default class SearchInput extends Component {
             <div className='search'>
             <input type="text"
             className="search-input"
-            placeholder="Type to search" 
+            placeholder="Type to search..." 
             onInput={searchValue}/>
             <button className='search-btn' onClick={findShows}>SEARCH</button>
             </div>
@@ -21,5 +21,3 @@ export default class SearchInput extends Component {
         );
     }
 }
-
-// onChange={findShows}

@@ -1,3 +1,4 @@
+import NoImage from '../img/no-image.gif';
 export default class ApiService {
 
     _apiBase = 'http://api.tvmaze.com';
@@ -14,22 +15,37 @@ export default class ApiService {
   
     searchShow = async (id) => {
       const res = await this.getResource(`/search/shows?q=${id}`);
-      return res
+      return res.map(this.parceShows);
     };
 
     castShow = async (id) => {
       const res = await this.getResource(`/shows/${id}/cast`);
-      return res
+      return res;
     };
   
     getShow = async (id) => {
-      const show = this.getResource(`/shows/${id}`);
-      return show;
+      const res = this.getResource(`/shows/${id}`);
+      return res;
     };
 
-    showList = async (id) => {
-      const res = await this.getResource(`/shows?page=${id}`);
-      return res
-    };
+
   
+
+    parceShows = (show) => {
+     let {show: {image, id, name, type, premiered, summary, officialSite}} = show;
+     if(image === null){
+        image = NoImage;
+     } else {
+        image = image.medium;
+     }
+      return {
+        img: image,
+        id: id,
+        name: name,
+        type: type,
+        premiered: premiered,
+        summary: summary,
+        officialSite: officialSite
+      }
+    }
   }
