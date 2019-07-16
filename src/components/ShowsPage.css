@@ -1,14 +1,23 @@
 .show-item img {
     margin: 2vh;
 }
-.preview-show h4 {
+.preview h4 {
+    border-bottom: 1px solid #999;
+    padding-bottom: .5vh;
     font-size: 30px;
     font-weight: normal;
     margin: 0 0 2vh 0;
     text-align: left;
 }
-.preview-show {
-    margin: 0;
+.preview-info span{
+    margin-bottom: .6vh;
+}
+
+.preview-info {
+    display: flex;
+    flex-direction: column;
+    padding: 0 3vh;
+    
 }
 ul li {
     list-style: none;
@@ -17,13 +26,14 @@ ul li {
     font-weight: 600;
 }
 .preview {
+    font-family: Georgia, 'Times New Roman', Times, serif;
     border: 1px solid #c1c0c085;
     -webkit-box-shadow: 0px 0px 26px -10px rgba(0,0,0,0.75);
     -moz-box-shadow: 0px 0px 26px -10px rgba(0,0,0,0.75);
     box-shadow: 0px 0px 26px -10px rgba(0,0,0,0.75);
-    padding: 1vh;
+    padding: 2vh;
     display: flex;
-    justify-content: center;
+    justify-content: flex-start;
     align-items: flex-start;
     animation: fadeIn .5s ease-in-out;
     margin: 3vh 0;
@@ -35,7 +45,7 @@ ul li {
     cursor: pointer;
     position: absolute;
     font-size: 30px;
-    top: 40%;
+    top: 35%;
     color: #333;
 }
 .hide-preview-show{

@@ -2,6 +2,16 @@ import React, { Component } from 'react';
 import Spinner from './Spinner';
 // import './item-list.css';
 
+const Detail = ({ itemDetails, field, label, itemTag}) => {
+  return (
+    React.createElement(itemTag, null, `${label} ${itemDetails[field]}`)
+  );
+};
+
+export {
+  Detail
+};
+
 export default class ItemDetails extends Component {
 
   state = {
@@ -10,25 +20,12 @@ export default class ItemDetails extends Component {
 
   componentDidMount() {
     const { getData, itemId } = this.props;
-    console.log(getData)
     getData(itemId)
       .then((itemDetails) => {
         this.setState({
           itemDetails
         });
-        console.log(itemDetails)
       });
-  }
-
-  renderItems(item) {
-      const label = this.props.children(item);
-
-
-      return (
-
-          label
-
-      );
   }
 
   render() {
@@ -39,12 +36,22 @@ export default class ItemDetails extends Component {
       return <Spinner />;
     }
 
-    const item = this.renderItems(itemDetails);
+    const { name, img } = itemDetails;
+
+    // const item = this.renderItems(itemDetails);
     const {itemClass} = this.props;
     return (
+      <React.Fragment>
+      <img src={img} alt='show'/>
       <div className={itemClass}>
-        {item}
+      <h4 className='item-title'>{name}</h4>
+        {
+          React.Children.map(this.props.children, (child) => {
+            return React.cloneElement(child, { itemDetails });
+          })
+        }
       </div>
+      </React.Fragment>
     );
   }
 }

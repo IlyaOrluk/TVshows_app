@@ -1,5 +1,5 @@
 import React from 'react';
-import searchDude from './img/searchman.png';
+import searchDude from '../img/searchman.png';
 import './Header.css';
 
 

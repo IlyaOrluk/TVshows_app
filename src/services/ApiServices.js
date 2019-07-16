@@ -13,39 +13,79 @@ export default class ApiService {
       return await res.json();
     };
   
-    searchShow = async (id) => {
-      const res = await this.getResource(`/search/shows?q=${id}`);
+    searchShow = async (search) => {
+      const res = await this.getResource(`/search/shows?q=${search}`);
       return res.map(this.parceShows);
     };
 
     castShow = async (id) => {
       const res = await this.getResource(`/shows/${id}/cast`);
-      return res;
+      return res.map(this.parceCast);
     };
   
     getShow = async (id) => {
-      const res = this.getResource(`/shows/${id}`);
-      return res;
+      const res = await this.getResource(`/shows/${id}`);
+      return this.parceShow(res);
     };
 
 
-  
+    parceCast = (cast) => {
+      let {character: { id, name, image } } = cast;
+      if(image === null){
+        image = NoImage;
+     } else {
+        image = image.medium;
+     }
+       return {
+         img: image,
+         id: id,
+         name: name
+       }
+    }
 
     parceShows = (show) => {
-     let {show: {image, id, name, type, premiered, summary, officialSite}} = show;
+     let {show: {image, id, name, type, premiered}} = show;
      if(image === null){
         image = NoImage;
      } else {
         image = image.medium;
      }
+     
       return {
         img: image,
         id: id,
         name: name,
         type: type,
         premiered: premiered,
-        summary: summary,
-        officialSite: officialSite
       }
     }
+
+    parceShow = (show) => {
+      let { image, id, name, type, premiered, summary, officialSite, genres, rating } = show; //from this project
+      if(image === null){
+         image = NoImage;
+      } else {
+         image = image.medium;
+      }
+      if(rating.average === null){
+        rating = 'Unknown';
+      } else {
+        rating = rating.average;
+      }
+      if(summary !== null){
+        summary = summary.replace(/<\/?[^>]+>/g,'');
+      }
+       return {
+         img: image,
+         id: id,
+         name: name,
+         type: type,
+         premiered: premiered,
+         summary: summary,
+         rating: rating,
+         genres: genres,
+         officialSite: officialSite
+       }
+    }
+   
   }
