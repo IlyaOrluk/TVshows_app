@@ -1,0 +1,16 @@
+{
+  "files": {
+    "main.css": "/IlyaOrluk/TVshows_app/static/css/main.7792e58e.chunk.css",
+    "main.js": "/IlyaOrluk/TVshows_app/static/js/main.688f2411.chunk.js",
+    "main.js.map": "/IlyaOrluk/TVshows_app/static/js/main.688f2411.chunk.js.map",
+    "runtime~main.js": "/IlyaOrluk/TVshows_app/static/js/runtime~main.3fded5ab.js",
+    "runtime~main.js.map": "/IlyaOrluk/TVshows_app/static/js/runtime~main.3fded5ab.js.map",
+    "static/js/2.725397ba.chunk.js": "/IlyaOrluk/TVshows_app/static/js/2.725397ba.chunk.js",
+    "static/js/2.725397ba.chunk.js.map": "/IlyaOrluk/TVshows_app/static/js/2.725397ba.chunk.js.map",
+    "index.html": "/IlyaOrluk/TVshows_app/index.html",
+    "precache-manifest.f9ce9be0f8ea84b0aed844489efc16c7.js": "/IlyaOrluk/TVshows_app/precache-manifest.f9ce9be0f8ea84b0aed844489efc16c7.js",
+    "service-worker.js": "/IlyaOrluk/TVshows_app/service-worker.js",
+    "static/css/main.7792e58e.chunk.css.map": "/IlyaOrluk/TVshows_app/static/css/main.7792e58e.chunk.css.map",
+    "static/media/searchman.png": "/IlyaOrluk/TVshows_app/static/media/searchman.487213f0.png"
+  }
+}
